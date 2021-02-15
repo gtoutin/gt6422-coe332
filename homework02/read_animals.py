@@ -1,9 +1,12 @@
+#!/usr/bin/env python3
 # Author: Gabrielle Toutin
 # Date: 2/14/2021
 # Homework 2
 
 import json
 import random
+import sys
+import os.path as path
 
 
 def loadAnimal():	# gets a dictionary of animals and returns it as a dictionary
@@ -26,14 +29,59 @@ def nameAnimal(animal, animname):
     return newanimal
 
 def saveAnimals(myanimals):
-    with open('MyAnimalBox.json', 'a') as f:
+    with open('MyAnimalBox.json', 'w') as f:
         json.dump(myanimals, f)
+
+def seeAnimals():
+    doesexist = path.exists("MyAnimalBox.json")
+    if not(doesexist): return False
+    with open('MyAnimalBox.json', 'r') as f:
+        animals = json.load(f)
+    return animals
+
+
+def printAnimal(animal):
+    print("Name:", animal['name'])
+    print("Head:", animal['head'])
+    print("Body:", animal['body'])
+    print("Arms:", animal['arms'])
+    print("Legs:", animal['legs'])
+    print("Tails:",animal['tail'])
+    print()
+
 
 
 def main():	# create a pokemon game
 
     animals = loadAnimal()
-    myanimals = []
+#    myanimals = []
+    myanimals = seeAnimals()
+    if not(myanimals): # if it's empty
+        myanimals = []
+
+    play = 'x'
+    while play not in ['c','s']:
+        play = str(input("Catch some animals or see your animals? (c or s): "))
+    if (play=='c'):
+        play = True
+    elif play=='s':
+        play = False
+    else:
+        return
+
+
+    if not(play):	# see animals
+        openanimals = seeAnimals()	# does file exist?
+
+        if openanimals==False:
+            print("You have no animals! Go catch some!")
+            return
+        else:
+            print()
+            for animal in openanimals:
+                printAnimal(animal) 
+            return
+
     while True:
         print()
         animal = getAnimal(animals)
