@@ -15,7 +15,6 @@ def loadAnimal():	# gets a dictionary of animals and returns it as a dictionary
     return animals
 
 def getAnimal(animals):
-
     animal = random.choice(animals['animals'])    # choose a random animal species
     return animal
 
@@ -39,7 +38,6 @@ def seeAnimals():
         animals = json.load(f)
     return animals
 
-
 def printAnimal(animal):
     print("Name:", animal['name'])
     print("Head:", animal['head'])
@@ -54,7 +52,6 @@ def printAnimal(animal):
 def main():	# create a pokemon game
 
     animals = loadAnimal()
-#    myanimals = []
     myanimals = seeAnimals()
     if not(myanimals): # if it's empty
         myanimals = []
@@ -127,4 +124,4 @@ def main():	# create a pokemon game
 
 
 
-main()    
+#main()    
