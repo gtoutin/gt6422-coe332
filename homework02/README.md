@@ -8,7 +8,7 @@ Pull down the Docker image from Docker Hub with
 ```docker pull gctoutin/homework02:1.0```  
 after that, run it with
 ```docker run gctoutin/homework02:1.0```
-
+The files can be found in the ```/code/``` folder.
 
 ## Usage
 
