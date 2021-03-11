@@ -1,0 +1,144 @@
+{
+  "animals": [
+    {
+      "head": "raven",
+      "body": "pipefish-wasp",
+      "arms": 2,
+      "legs": 9,
+      "tail": 11
+    },
+    {
+      "head": "bunny",
+      "body": "crane-civet",
+      "arms": 7,
+      "legs": 6,
+      "tail": 13
+    },
+    {
+      "head": "snake",
+      "body": "cicada-sturgeon",
+      "arms": 3,
+      "legs": 12,
+      "tail": 15
+    },
+    {
+      "head": "snake",
+      "body": "crawdad-skylark",
+      "arms": 3,
+      "legs": 12,
+      "tail": 15
+    },
+    {
+      "head": "snake",
+      "body": "sheepdog-lioness",
+      "arms": 4,
+      "legs": 6,
+      "tail": 10
+    },
+    {
+      "head": "lion",
+      "body": "crawdad-bear",
+      "arms": 2,
+      "legs": 12,
+      "tail": 14
+    },
+    {
+      "head": "bull",
+      "body": "weevil-quetzal",
+      "arms": 6,
+      "legs": 9,
+      "tail": 15
+    },
+    {
+      "head": "lion",
+      "body": "ewe-hyena",
+      "arms": 2,
+      "legs": 12,
+      "tail": 14
+    },
+    {
+      "head": "raven",
+      "body": "polecat-pelican",
+      "arms": 4,
+      "legs": 6,
+      "tail": 10
+    },
+    {
+      "head": "lion",
+      "body": "escargot-aphid",
+      "arms": 4,
+      "legs": 9,
+      "tail": 13
+    },
+    {
+      "head": "bull",
+      "body": "eagle-hornet",
+      "arms": 2,
+      "legs": 3,
+      "tail": 5
+    },
+    {
+      "head": "bull",
+      "body": "iguana-raven",
+      "arms": 3,
+      "legs": 3,
+      "tail": 6
+    },
+    {
+      "head": "snake",
+      "body": "dane-barnacle",
+      "arms": 2,
+      "legs": 3,
+      "tail": 5
+    },
+    {
+      "head": "raven",
+      "body": "stingray-anchovy",
+      "arms": 10,
+      "legs": 9,
+      "tail": 19
+    },
+    {
+      "head": "lion",
+      "body": "sunbeam-thrush",
+      "arms": 5,
+      "legs": 9,
+      "tail": 14
+    },
+    {
+      "head": "bunny",
+      "body": "eft-lemming",
+      "arms": 8,
+      "legs": 9,
+      "tail": 17
+    },
+    {
+      "head": "raven",
+      "body": "stud-parakeet",
+      "arms": 6,
+      "legs": 12,
+      "tail": 18
+    },
+    {
+      "head": "snake",
+      "body": "stallion-bee",
+      "arms": 5,
+      "legs": 3,
+      "tail": 8
+    },
+    {
+      "head": "snake",
+      "body": "guinea-quetzal",
+      "arms": 7,
+      "legs": 3,
+      "tail": 10
+    },
+    {
+      "head": "bull",
+      "body": "owl-bobcat",
+      "arms": 8,
+      "legs": 6,
+      "tail": 14
+    }
+  ]
+}
