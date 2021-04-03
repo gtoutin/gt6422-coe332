@@ -42,5 +42,8 @@ docker rm gctoutin-redis
 ```
 Their deletion can be confirmed with ```docker ps -a```
 
+### Note:
+If more animals are needed, they can be produced with the provided ```generate_animals.py``` file with ```python3 generate_animals.py```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
