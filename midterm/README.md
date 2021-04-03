@@ -23,7 +23,7 @@ Before any of the ```/animals/...``` routes can be used, you must first load the
 curl localhost:5033/animals/loaddata
 ```
 ### Note:
-If different animals are needed, the ```animals.json``` file can be produced with the provided ```generate_animals.py``` script with ```python3 generate_animals.py```
+If different animals are needed, the ```animals.json``` file can be produced with the provided ```generate_animals.py``` script with ```python3 ./app/generate_animals.py```
 
 ### For the midterm, the routes of interest are
 - ```/animals/dates/<date1>/<date2>``` to query a range of dates
