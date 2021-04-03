@@ -1,0 +1,17 @@
+---
+version: "3"
+
+services:
+    redis-server:
+        image: redis:5.0.0
+        ports:
+            - 6413:6379
+        container_name: gctoutin-redis
+        volumes:
+            - ./config/redis.conf:/redis.conf
+        command: [ "redis-server", "/redis.conf"]
+    flask-server:
+        build: ./app
+        container_name: gctoutin-flask
+        ports:
+            - 5033:5000
