@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hw5-hello
+  labels:
+    greeting: personalized
+spec:
+  containers:
+    - name: hw5-hello
+      image: ubuntu:18.04
+      command: ['sh', '-c', 'echo "Hello, $NAME"']
