@@ -1,26 +1,48 @@
-# Moreau Flask App with Redis Database
+# Deploying a Flask API to Kubernetes
 
-This is a Flask app that interacts with a Redis database to store, edit, and return animals.
+This is a Flask app that interacts with a Redis database to store, edit, and return animals. It is defined in Kubernetes with these yml files.
 
 ## Installation
 
-Installation is simple. Copy over the midterm folder and enter it. Once inside, start up the containers with docker-compose.
+Installation is simple. Copy over the homework06 folder and enter it. Once inside, start up the containers with kubectl.
 
 ```bash
-cd midterm
-docker-compose up --build
+cd homework06
+kubectl apply -f gctoutin-test-redis-pvc.yml
+kubectl apply -f gctoutin-test-redis-deployment.yml
+kubectl apply -f gctoutin-test-redis-service.yml
+kubectl apply -f gctoutin-test-flask-deployment.yml
+kubectl apply -f gctoutin-test-flask-service.yml
 ```
 
 ## Usage
 
-To all possible routes of the Flask app and what they do, hit the / route of the app for the front page.
+To use the Flask service, you need the IP address of one of the Flask pods.
 ```bash
-curl localhost:5033/
+kubectl get pods -o wide
+```
+Example output:
+```
+NAME                                        READY   STATUS             RESTARTS   AGE     IP              NODE   NOMINATED NODE   READINESS GATES
+gctoutin-test-flask-5f95bc9649-5kmkp        1/1     Running            0          9h      10.244.12.9     c12    <none>           <none>
+gctoutin-test-flask-5f95bc9649-w5646        1/1     Running            0          9h      10.244.13.20    c11    <none>           <none>
+```
+
+You will also need a Python debug pod to access this IP address from inside the cluster. This pod contains an environment that can access the Flask API.
+```bash
+kubectl apply -f deployment-python-debug.yml
+kubectl get pods -o wide
+kubectl exec -it <name of python pod from previous output> -- /bin/bash
+```
+
+To get all possible routes of the Flask app and what they do, hit the / route of the app for the front page.
+```bash
+curl 10.244.12.9:5000/
 ```
 
 Before any of the ```/animals/...``` routes can be used, you must first load the data from the example ```animals.json``` provided.
 ```bash
-curl localhost:5033/animals/loaddata
+curl 10.244.12.9:5000/animals/loaddata
 ```
 
 ### For the midterm, the routes of interest are
