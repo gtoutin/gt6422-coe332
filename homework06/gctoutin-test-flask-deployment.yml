@@ -29,7 +29,7 @@ spec:
             - name: "FLASK_ENV"
               value: "test"
             - name: "REDIS_IP"
-              value: 10.244.13.249
+              value: "10.244.13.249"
           ports:
           - name: http
             containerPort: 5000
