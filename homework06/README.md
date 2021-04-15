@@ -17,15 +17,15 @@ kubectl apply -f gctoutin-test-flask-service.yml
 
 ## Usage
 
-To use the Flask service, you need the IP address of one of the Flask pods.
+To use the Flask service, you need the IP address of the Flask service.
 ```bash
-kubectl get pods -o wide
+kubectl get services -o wide
 ```
 Example output:
 ```
-NAME                                        READY   STATUS             RESTARTS   AGE     IP              NODE   NOMINATED NODE   READINESS GATES
-gctoutin-test-flask-5f95bc9649-5kmkp        1/1     Running            0          9h      10.244.12.9     c12    <none>           <none>
-gctoutin-test-flask-5f95bc9649-w5646        1/1     Running            0          9h      10.244.13.20    c11    <none>           <none>
+NAME                          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE     SELECTOR
+gctoutin-flask-service-test   ClusterIP   10.101.5.231     <none>        5000/TCP         10h     app=gctoutin-test-flask
+gctoutin-service-test         ClusterIP   10.98.218.97     <none>        6379/TCP         8d      app=gctoutin-test-redis
 ```
 
 You will also need a Python debug pod to access this IP address from inside the cluster. This pod contains an environment that can access the Flask API.
@@ -37,12 +37,12 @@ kubectl exec -it <name of python pod from previous output> -- /bin/bash
 
 To get all possible routes of the Flask app and what they do, hit the / route of the app for the front page.
 ```bash
-curl 10.244.12.9:5000/
+curl 10.101.5.231:5000/
 ```
 
 Before any of the ```/animals/...``` routes can be used, you must first load the data from the example ```animals.json``` provided.
 ```bash
-curl 10.244.12.9:5000/animals/loaddata
+curl 10.101.5.231:5000/animals/loaddata
 ```
 
 ## License
