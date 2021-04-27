@@ -1,0 +1,182 @@
+[
+  {
+    "head": "snake",
+    "body": "raven-grubworm",
+    "arms": "2",
+    "legs": "6",
+    "tail": "8",
+    "uid": "b4e6f0d4-9a7a-4b63-9599-738548d915a1",
+    "created_on": "2021-04-02 12:22:39.279995"
+  },
+  {
+    "head": "lion",
+    "body": "cougar-kid",
+    "arms": "8",
+    "legs": "12",
+    "tail": "20",
+    "uid": "f0079172-102a-46da-8667-d4c2e3a32418",
+    "created_on": "2021-04-02 12:22:39.280077"
+  },
+  {
+    "head": "bunny",
+    "body": "cub-tetra",
+    "arms": "4",
+    "legs": "3",
+    "tail": "7",
+    "uid": "b0e7c5ac-3212-4271-abaa-e8072b17fefc",
+    "created_on": "2021-04-02 12:22:39.280134"
+  },
+  {
+    "head": "bunny",
+    "body": "lizard-imp",
+    "arms": "2",
+    "legs": "12",
+    "tail": "14",
+    "uid": "fd4086fa-ae5b-4f5c-97ec-9201348afa59",
+    "created_on": "2021-04-02 12:22:39.280173"
+  },
+  {
+    "head": "snake",
+    "body": "bunny-giraffe",
+    "arms": "4",
+    "legs": "3",
+    "tail": "7",
+    "uid": "5e81b1fd-baa8-4bdf-87d7-ffb225e16445",
+    "created_on": "2021-04-02 12:22:39.280211"
+  },
+  {
+    "head": "bunny",
+    "body": "shepherd-gorilla",
+    "arms": "6",
+    "legs": "6",
+    "tail": "12",
+    "uid": "5d6d4ca7-ba17-492f-95db-3652ff192cf1",
+    "created_on": "2021-04-02 12:22:39.280249"
+  },
+  {
+    "head": "bunny",
+    "body": "stag-corgi",
+    "arms": "4",
+    "legs": "6",
+    "tail": "10",
+    "uid": "5534cccd-8dc6-48e8-87f6-aac0aa94a715",
+    "created_on": "2021-04-02 12:22:39.280285"
+  },
+  {
+    "head": "bunny",
+    "body": "rat-stud",
+    "arms": "2",
+    "legs": "3",
+    "tail": "5",
+    "uid": "b8b38dae-d2af-473d-950e-55048fd8e920",
+    "created_on": "2021-04-02 12:22:39.280320"
+  },
+  {
+    "head": "snake",
+    "body": "shrimp-man",
+    "arms": "6",
+    "legs": "3",
+    "tail": "9",
+    "uid": "ec6fdb37-55fa-4a90-8331-fd3ca092e645",
+    "created_on": "2021-04-02 12:22:39.280355"
+  },
+  {
+    "head": "snake",
+    "body": "weevil-corgi",
+    "arms": "2",
+    "legs": "3",
+    "tail": "5",
+    "uid": "9c4899fb-272c-4262-a477-3f1ce03f2405",
+    "created_on": "2021-04-02 12:22:39.280389"
+  },
+  {
+    "head": "snake",
+    "body": "halibut-chipmunk",
+    "arms": "10",
+    "legs": "6",
+    "tail": "16",
+    "uid": "34136ada-4197-49c6-a6cb-469a782ddca7",
+    "created_on": "2021-04-02 12:22:39.280423"
+  },
+  {
+    "head": "lion",
+    "body": "mole-grubworm",
+    "arms": "2",
+    "legs": "12",
+    "tail": "14",
+    "uid": "908a806e-7e3f-432c-bbd2-42f611a2303b",
+    "created_on": "2021-04-02 12:22:39.280456"
+  },
+  {
+    "head": "raven",
+    "body": "bluegill-mallard",
+    "arms": "8",
+    "legs": "3",
+    "tail": "11",
+    "uid": "d1f26cf5-713e-4de9-90ff-ce86194b7acf",
+    "created_on": "2021-04-02 12:22:39.280489"
+  },
+  {
+    "head": "raven",
+    "body": "husky-skunk",
+    "arms": "6",
+    "legs": "12",
+    "tail": "18",
+    "uid": "a548bb09-4667-49ad-a1e4-c6c6215254ea",
+    "created_on": "2021-04-02 12:22:39.280523"
+  },
+  {
+    "head": "snake",
+    "body": "sheep-dove",
+    "arms": "8",
+    "legs": "6",
+    "tail": "14",
+    "uid": "fc55aba4-4d04-41af-bcf8-bb40bc5379e1",
+    "created_on": "2021-04-02 12:22:39.280557"
+  },
+  {
+    "head": "snake",
+    "body": "primate-hookworm",
+    "arms": "6",
+    "legs": "12",
+    "tail": "18",
+    "uid": "7095d95b-1d4b-432a-aa69-d7ab1bee4913",
+    "created_on": "2021-04-02 12:22:39.280590"
+  },
+  {
+    "head": "bull",
+    "body": "civet-caribou",
+    "arms": "4",
+    "legs": "3",
+    "tail": "7",
+    "uid": "87332ca7-0f1e-45db-878a-08b697d6177c",
+    "created_on": "2021-04-02 12:22:39.280625"
+  },
+  {
+    "head": "snake",
+    "body": "oyster-bonefish",
+    "arms": "4",
+    "legs": "6",
+    "tail": "10",
+    "uid": "a0d90b25-d57c-436f-accf-56478fd33137",
+    "created_on": "2021-04-02 12:22:39.280659"
+  },
+  {
+    "head": "lion",
+    "body": "trout-ferret",
+    "arms": "2",
+    "legs": "6",
+    "tail": "8",
+    "uid": "771ff8e4-69ac-460a-8655-e39b55dd0cf4",
+    "created_on": "2021-04-02 12:22:39.280693"
+  },
+  {
+    "head": "snake",
+    "body": "bunny-mako",
+    "arms": "2",
+    "legs": "9",
+    "tail": "11",
+    "uid": "b5e58760-ad97-4574-947b-a4cedd3e2e88",
+    "created_on": "2021-04-02 12:22:39.280727"
+  }
+]

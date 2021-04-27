@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gctoutin-test-flask
+  labels:
+    app: gctoutin-test-flask
+    username: gctoutin
+    env: test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gctoutin-test-flask
+  template:
+    metadata:
+      labels:
+        app: gctoutin-test-flask
+        username: gctoutin
+        env: test
+    spec:
+      containers:
+        - name: gctoutin-test-flask
+          imagePullPolicy: Always
+          image: gctoutin/animals:latest
+          env:
+            - name: "FLASK_APP"
+              value: "app.py"
+            - name: "FLASK_ENV"
+              value: "test"
+            - name: "REDIS_IP"
+              value: "10.98.218.97"
+          ports:
+          - name: http
+            containerPort: 5000
