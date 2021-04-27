@@ -1,0 +1,37 @@
+A.
+
+include the Dockerfile in the submission
+
+include the deployment yml files for worker and api and the commands used to run them
+  kubectl create -f gctoutin-hw7-flask-deployment.yml
+  kubectl create -f gctoutin-hw7-worker-deployment.yml
+
+then a kubectl create for each of the 3 yml files in db
+cd homework07/db
+  kubectl create -f gctoutin-hw7-redis-deployment.yml
+  kubectl create -f gctoutin-hw7-redis-pvc.yml
+  kubectl create -f gctoutin-hw7-redis-service.yml
+
+include the job submission curls
+
+root@py-debug-deployment-5cc8cdd65f-m622t:/# curl -X POST -H "content-type: application/json" -d '{"start":1, "end":2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "518fad82-9222-4b53-b8c8-86a1d95b6c38"}root@py-debug-deployment-5cc8cdd65f-m622t:/#
+root@py-debug-deployment-5cc8cdd65f-m622t:/# curl -X POST -H "content-type: application/json" -d '{"start":1, "end":2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "1a8b6641-2dab-4697-ba65-2d2ee1668e0c"}root@py-debug-deployment-5cc8cdd65f-m622t:/#
+root@py-debug-deployment-5cc8cdd65f-m622t:/# curl -X POST -H "content-type: application/json" -d '{"start":1, "end":2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "d698c7ea-d28c-4b7c-babc-05926f370eb9"}root@py-debug-deployment-5cc8cdd65f-m622t:/#
+
+
+include python code to retrieve these jobs and check their status
+
+
+>>> from hotqueue import HotQueue
+>>> import redis
+>>> from redis import StrictRedis
+>>> q = HotQueue("queue", host='10.98.218.97', port=6379, db=1)
+>>> rd = redis.StrictRedis(host='10.98.218.97', port=6379, db=0)
+>>> rd.hmget("job.291531a5-99a8-4a1d-a127-e66314a651dd", "status")
+[b'submitted']
+
+>>> rd.hmget("job.f0647508-10b3-4bf7-8019-138916cda62f","status")
+[b'complete']

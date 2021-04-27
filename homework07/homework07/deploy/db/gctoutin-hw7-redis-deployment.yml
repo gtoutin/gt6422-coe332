@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gctoutin-hw7-redis
+  labels:
+    app: gctoutin-hw7-redis
+    username: gctoutin
+    env: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gctoutin-hw7-redis
+  template:
+    metadata:
+      labels:
+        app: gctoutin-hw7-redis
+        username: gctoutin
+        env: test
+    spec:
+      containers:
+        - name: gctoutin-hw7-redis
+          imagePullPolicy: Always
+          image: redis:5.0.0
+          volumeMounts:
+          - name: gctoutin-pvc-hw7
+            mountPath: "/data"
+      volumes:
+        - name: gctoutin-pvc-hw7
+          persistentVolumeClaim:
+            claimName: gctoutin-pvc-hw7

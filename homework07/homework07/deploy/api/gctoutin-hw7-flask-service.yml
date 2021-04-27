@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gctoutin-flask-service-hw7
+  labels:
+    app: gctoutin-flask-service-hw7
+    username: gctoutin
+    env: test
+spec:
+  type: ClusterIP
+  selector:
+    app: gctoutin-hw7-flask
+  ports:
+  - name: gctoutin-hw7-flask
+    port: 5000
+    targetPort: 5000

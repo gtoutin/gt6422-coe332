@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gctoutin-hw7-flask
+  labels:
+    app: gctoutin-hw7-flask
+    username: gctoutin
+    env: test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gctoutin-hw7-flask
+  template:
+    metadata:
+      labels:
+        app: gctoutin-hw7-flask
+        username: gctoutin
+        env: test
+    spec:
+      containers:
+        - name: gctoutin-hw7-flask
+          imagePullPolicy: Always
+          image: gctoutin/hw7-api:latest
+          #command: ["python", "api.py"]
+          env:
+            - name: "FLASK_APP"
+              value: "api.py"
+            - name: "FLASK_ENV"
+              value: "test"
+            - name: "REDIS_IP"
+              value: "10.109.68.104" # CHANGED!
+          ports:
+          - name: http
+            containerPort: 5000
