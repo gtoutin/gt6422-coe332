@@ -14,8 +14,10 @@ def _generate_jid():
 def _generate_job_key(jid):
     return 'job.{}'.format(jid)
 
-def _instantiate_job(jid, status, start, end):
+def _instantiate_job(jid, status, start, end, workerip='None'):
     if type(jid) == str:
+        if status=='in progress':  # if it has been taken by a worker, list the worker in the db
+            rd.hset(_generate_job_key(jid),'worker', workerip)
         return {'id': jid,
                 'status': status,
                 'start': start,
@@ -45,10 +47,10 @@ def add_job(start, end, status="submitted"):
     _queue_job(jid)
     return job_dict
 
-def update_job_status(jid, newstatus):
+def update_job_status(jid, newstatus, workerIP):
     """Update the status of job with job id `jid` to status `status`."""
     jid, status, start, end = rd.hmget(_generate_job_key(jid), 'id', 'status', 'start', 'end')
-    job = _instantiate_job(jid, status, start, end)
+    job = _instantiate_job(jid, status, start, end, workerIP)
     if job:
         job['status'] = newstatus
         _save_job(_generate_job_key(jid), job)

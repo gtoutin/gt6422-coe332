@@ -23,7 +23,6 @@ spec:
         - name: gctoutin-hw7-flask
           imagePullPolicy: Always
           image: gctoutin/hw7-api:latest
-          #command: ["python", "api.py"]
           env:
             - name: "FLASK_APP"
               value: "api.py"

@@ -19,10 +19,14 @@ spec:
         - name: gctoutin-hw7-worker-deployment
           imagePullPolicy: Always
           image: gctoutin/hw7-wrk:latest
-          command: ['python','worker.py']
+          #command: ['python','worker.py']
           env:
           - name: "REDIS_IP"
             value: "10.109.68.104"  # CHANGED!
+          - name: "WORKER_IP"
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
           #ports:
           #- name: http
           #  containerPort: 5000
