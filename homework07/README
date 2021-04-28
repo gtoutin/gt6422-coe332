@@ -1,6 +1,6 @@
 A.
 
-include the Dockerfile in the submission
+include the Dockerfile in the submission (Dockerfile.api, Dockerfile.wrk)
 
 include the deployment yml files for worker and api and the commands used to run them
   kubectl create -f gctoutin-hw7-flask-deployment.yml
@@ -24,7 +24,6 @@ root@py-debug-deployment-5cc8cdd65f-m622t:/# curl -X POST -H "content-type: appl
 
 include python code to retrieve these jobs and check their status
 
-
 >>> from hotqueue import HotQueue
 >>> import redis
 >>> from redis import StrictRedis
@@ -35,3 +34,60 @@ include python code to retrieve these jobs and check their status
 
 >>> rd.hmget("job.f0647508-10b3-4bf7-8019-138916cda62f","status")
 [b'complete']
+
+-----------------------------------
+B.
+
+include updated worker deployment file (gctoutin-hw7-worker-deployment.yml)
+
+----------------------------------
+C.
+
+a. curl statements used and responses ********
+
+root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "4cf04b38-410d-4fb3-a3e1-c8463ae80d05"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "01b54579-8ccf-482e-92ee-f4506e4bd235"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "595c619b-0c05-4b0d-a60d-d6d10e3afed9"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "7ccd3893-a2e4-4151-9dca-de5c8d0cc331"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "faa8e0bf-d3ac-4da3-83b9-2d024d2fb32c"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "11e4f77c-3ad6-49c7-9442-81870dbe2a6c"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "f82bdfe8-f540-4b9d-b384-7739c5cc89de"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "834ea0e9-94ec-42d8-b560-d38d7b314156"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "59149f0f-3e77-4b1b-94ce-8894baf26ea4"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/# curl -X POST -H "content-type: application/json" -d '{"start": 1, "end": 2}' 10.100.112.237:5000/jobs
+{"status": "submitted", "start": 1, "end": 2, "id": "bde433ef-ce8c-4398-aa9f-56a76ed5bbfc"}root@py-debug-deployment-wk12-5cc8cdd65f-vbgrz:/#
+
+
+b. python statement used to check status of the job and its output ***********
+
+>>> rd.hmget("job.4cf04b38-410d-4fb3-a3e1-c8463ae80d05", "status")
+[b'complete']
+
+
+c. How many jobs per worker? *************
+
+worker IP	number of jobs
+10.244.7.215	5
+10.244.3.254	5
+
+
+>>> rd.hmget("job.4cf04b38-410d-4fb3-a3e1-c8463ae80d05", "worker")
+[b'10.244.3.254']
+>>> rd.hmget("job.01b54579-8ccf-482e-92ee-f4506e4bd235", "worker")
+[b'10.244.7.215']
+>>> rd.hmget("job.595c619b-0c05-4b0d-a60d-d6d10e3afed9", "worker")
+[b'10.244.3.254']
+>>> rd.hmget("job.7ccd3893-a2e4-4151-9dca-de5c8d0cc331", "worker")
+[b'10.244.7.215']
+>>> rd.hmget("job.faa8e0bf-d3ac-4da3-83b9-2d024d2fb32c", "worker")
+[b'10.244.3.254']
+>>> rd.hmget("job.11e4f77c-3ad6-49c7-9442-81870dbe2a6c", "worker")
+[b'10.244.7.215']
+>>> rd.hmget("job.f82bdfe8-f540-4b9d-b384-7739c5cc89de", "worker")
+[b'10.244.3.254']
+>>> rd.hmget("job.834ea0e9-94ec-42d8-b560-d38d7b314156", "worker")
+[b'10.244.7.215']
+>>> rd.hmget("job.59149f0f-3e77-4b1b-94ce-8894baf26ea4", "worker")
+[b'10.244.3.254']
+>>> rd.hmget("job.bde433ef-ce8c-4398-aa9f-56a76ed5bbfc", "worker")
+[b'10.244.7.215']
